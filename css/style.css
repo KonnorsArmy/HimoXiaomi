@@ -1,0 +1,537 @@
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+/* Не работает */
+/* html{
+    scroll-behavior: smooth;
+} */
+
+a{
+    text-decoration: none;
+    color:inherit
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+li{
+    padding-left: 0;
+}
+p{
+    margin: 0;
+}
+
+body{
+    color: #131313;
+    line-height: 17px;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Container */
+.container{
+    /* Выровнять по центру */
+    margin: 0 auto;
+    padding: 0 10px;
+
+    max-width: 1220px; 
+}
+
+/* Header */
+.header__inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu{
+    margin-right: 70px;
+}    
+.menu__list{
+    display: flex;
+
+}
+/* Работает на все элементы кроме первого */
+.menu__item + .menu__item{
+    padding-left: 10px;
+
+}
+.menu__link{
+    /* Добавил верхние падинги и они окрашиваются */
+    padding: 42px 20px;
+
+    text-transform: uppercase;
+
+    transition: all .2s;
+}
+.menu__link:hover{
+    background-color: #131313;
+    color: #fff;
+}
+/* Header End */
+
+/* Intro */
+.intro{
+    /* Отспут верхний и нижний */
+    padding: 100px 0 0;
+}
+.intro__inner{
+    /* В данном блоке находится колонки, поэтому разделяем их */
+    display: flex;
+    justify-content: space-between;
+}
+/* Second colummn */
+.intro__column--slider{
+    margin-left: 30px;
+
+    flex-basis: 630px;
+    max-width: 630px;
+}
+.intro__list{
+    margin-top: 25px;
+    display:flex;
+    /* Для выравнивания */
+    justify-content: space-around;
+}
+.intro__item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    /* Для того чтобы влезла мех. и гиб. режим в одну строку */
+    min-width: 160px;
+    /* Отступ от верха */
+    min-height: 58px;
+}
+.intro__list-num{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+}
+
+.intro__list-text{
+    margin: auto 0;
+
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+
+}
+
+/* First column */
+.intro__title{
+    margin: 60px 0 5px;
+
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 77px;
+}
+.intro__subtitle{
+    /* Отступ */
+    margin: 0 0 60px;
+
+    /* Стиль текста */
+    color: #6f6f6f;
+    font-size: 34px;
+    line-height: 39px;
+    font-weight: 400;
+}
+.intro__text{
+    /* Отступ верхенго текста от нижнего */
+    margin-bottom: 20px;
+
+    max-width: 420px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}
+.intro__link{
+    margin-top: 80px;
+    /* Уменьшаю падинг справа потому что от летер спейсинг имеется пустое пространство  справа */
+    padding: 28px 65px 28px 81px;
+    /* Чтобы в строку */
+    display: inline-block;
+    
+    background-color: #131313;
+    color: #fff;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 1.1em;
+    text-transform: uppercase;
+
+    transition: all .2s;
+}
+.intro__link:hover{
+    background-color: #ff4040;
+}
+/* Intro End */
+
+/* Intro__Slider */
+/* Обртился к точкам которые подключил в js на сайте склик */
+.intro__slider .slick-dots{
+    /* Переместил в верхний правый угол блока интро */
+    right: 0;
+    top: 50px;
+}
+.slick-dots{
+    position: absolute;
+    top: 0;
+}
+/* Обращение к li */
+.slick-dots li+li{
+    /* Расстояние между кнопками */
+    padding-top: 10px;
+
+}
+/* Обращение к кнопкам */
+.slick-dots button{
+    padding: 0;
+    border: none;
+
+    /* Создание кнопок как на макете */
+    background-color: #131313;
+    width: 2px;
+    height: 25px;
+    border-radius: 7px;
+
+    /* Чтобы убрать цифры */
+    font-size: 0;
+
+    /* Когда наводится мышка менялся курсор */
+    cursor: pointer;
+    /* Плавность */
+    transition: all .2s;
+}
+
+.slick-dots button:hover{
+    /* Меняется цвет при наведении */
+    background-color: #ff4040;
+}
+.slick-active button{
+    /* Меняется цвет при активности */
+    background-color: #ff4040;
+}
+/* Slider End */
+
+/* Information */
+.info{
+    padding-top: 150px;
+}
+.info__inner{
+    display: flex;
+}
+.info__img{
+    /* Разделение фото и текста справа */
+    margin-right: 60px;
+    /* Ширина картинки */
+    flex-basis: 570px;
+    /* Чтобы нормально растягивалось */
+    object-fit: cover;
+    
+}
+.info__list{
+    /* Ширина текста,чтобы не растягивалось на весь контейнер */
+    flex-basis: 490px;
+}
+/* Второе инфо айтем, нужен чтобы не обращться к первому */
+.info__item + .info__item{
+    padding-top: 50px;
+}
+.info__item-title{
+    /* Убрали стандартный маржин вверху, и добавил отступ от параграфа */
+    margin: 0 0 10px;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: uppercase;
+}
+.info__item-text{
+    max-width: 450px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}
+/* Information End */
+
+
+/* About */
+.about{
+    /* Отступ снизу */
+    padding-top: 150px;
+    margin-bottom: 150px;
+}
+.about__head{
+    /* Отступ снизу */
+    margin: 0 0 40px;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: uppercase;
+}
+/* Поделить на две колонки */
+.about__inner{
+    display: flex;
+}
+.about__img{
+    /* Чтобы не растягивало картинку */
+    align-self: center;
+}
+.about__items{
+    flex-basis: 570px;
+    margin-right: 50px;
+}
+.about__list + .about__list{
+    padding-top: 30px;
+}
+.about__title{
+    /* Отступ для заднего фона сверху и снизу, а справа до конца about__items */
+    padding: 2px 0 3px 1px;
+
+    background-color: #131313;
+    color: #fff;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+}
+.about__line{
+    /* Для того чтобы было в строку */
+    display: flex;
+    padding-top: 5px;
+}
+.about__name{
+    /* Отступ справа для того чтобы были две ровные колонки */
+    flex-basis: 285px;
+    /* Чтобы не было притык к друг другу, работает только со свойтом box-sizing: border-box; */
+    padding-right: 25px;
+}
+.about__descr{
+    /* Отступ справа для того чтобы были две ровные колонки */
+    flex-basis: 285px;
+}
+/* About End */
+
+/* Slider */
+/* Основной блок слайдера */
+.slider{
+    margin-bottom: 50px;
+}
+.slider__items .slick-dots{
+    top: 0;
+    left: 0;
+} 
+.slider__item{
+    padding-left: 50px;
+}
+/* Slider End */
+
+/* Price,form */
+.price{
+    margin-bottom: 100px;
+}
+/* Родитель по которому выравниваются велосипеды */
+.price__inner{
+    position: relative;
+}
+.form{
+    max-width: 420px;
+}
+.form__title{
+    margin-bottom: 40px;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: uppercase;
+}
+.form__text{
+    max-width: 300px;
+    margin-bottom: 30px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+}
+.form__input-name,
+.form__input-phone{
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+
+    border: none;
+    /* Полоска снизу */
+    border-bottom: 1px solid #131313;
+    outline: none;
+}
+/* Обращение к плейсхолдерам */
+.form__input-name::placeholder,
+.form__input-phone::placeholder,
+.form__input-text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+
+    color: #6F6F6F;
+    opacity: 0.5;
+}
+.form__input-text{
+    margin-bottom: 10px;
+}
+.form__label-box{
+    display: flex;
+    margin-bottom: 50px;
+}
+/* Спрятать кнопки */
+.form__input-radio{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+}
+/* Расстояние между кнопками */
+.form__label + .form__label{
+    margin-left: 23px;
+
+}
+/* Если состояние чекед, то появлятся велосипед */
+.form__input-radio:checked + .form__bike{
+    display: block;
+}
+.form__bike-price{
+    /* Выравнял по центру элипс */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Выравнял по центру цену, переместил на половину цены дальше по оси Х */
+    transform: translateX(-50%);
+
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    width: 220px;
+    height: 100px;
+
+    border: 1px solid #ff4040;
+    border-radius: 50%;
+
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 39px;
+}
+/* Добавил еще один элипс как на макете с помощью псевдоэлемента */
+.form__bike-price::after{
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 0;
+    width: 220px;
+    height: 100px;
+
+    border: 1px solid #ff4040;
+    border-radius: 50%;
+}
+
+
+/* Ребенок который выравнивается по прайс иннеру */
+.form__bike{
+    display: none;
+    /* Прижал к правому верхнему углу прайс иннера как на макете */
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+/* Стилиазовал кнопки */
+.form__radio-style{
+    height: 12px;
+    width: 80px;
+
+    cursor: pointer;
+
+    border-radius: 30px;
+}
+.form__radio-style--grey{
+    background: #6F6F6F;
+}
+.form__radio-style--white{
+    background-color: #fff;
+    border: 1px solid #6F6F6F;
+}
+.form__radio-style--red{
+    background: #FF4040;
+}
+.form__btn{
+    background-color: #131313;
+    /* Уменьшаю падинг справа потому что от летер спейсинг имеется пустое пространство  справа */
+    padding: 28px 65px 28px 81px;
+    border: none;
+    
+    color: #fff;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 1.1em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    transition: all .2s;
+}
+.form__btn:hover{
+    background-color: #ff4040;
+}
+/* Footer */
+.footer{
+    background-color: #131313;
+}
+.footer__inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+}
+.footer__link{
+    color: #fff;
+
+    text-decoration: underline;
+
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: lowercase;
+}
+.footer__social-link + .footer__social-link{
+    margin-left: 28px;
+}
+.footer__contacts{
+    color: #fff;
+
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+}
+.footer__contacts-link{
+    /* Выравнял ссылки по картинке */
+    display: flex;
+    align-items: center;
+}
+/* Отступ нижнего элемента от верхенго */
+.footer__contacts-link + .footer__contacts-link{
+    margin-top: 10px;
+}
+.footer__contacts-img{
+    margin-right: 10px;
+}
